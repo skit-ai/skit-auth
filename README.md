@@ -6,7 +6,7 @@ This is a simple authentication library for Skit's platform.
 - Provides specific tokens for organizations associated with Skit.
 
 
-# Installation
+## Installation
 The library uses `python=^3.9`.
 
 ```shell
@@ -14,7 +14,7 @@ pip install skit-auth
 skit-auth -h
 ```
 
-# Usage
+## Usage
 
 ```
 ❯ skit-auth -h
@@ -33,7 +33,7 @@ optional arguments:
 
 The default url is the production api gateway endpoint.
 
-# Example
+## Example
 
 Sharing a few invocation examples:
 
