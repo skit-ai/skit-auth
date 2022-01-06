@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "skit-auth"
+version = "0.1.0"
+description = "Authorization for skit.ai's api gateway."
+authors = ["ltbringer <amresh.venugopal@gmail.com>"]
+license = "GPL-3"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.27.1"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+black = "^21.12b0"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+httpretty = "^1.1.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+skit-auth = "skit_auth.cli:main"
