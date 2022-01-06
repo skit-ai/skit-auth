@@ -1,0 +1,9 @@
+EMAIL = "email"
+PASSWORD = "password"
+ACCESS_TOKEN = "access_token"
+ORG_ID = "organisation_id"
+AUTHORIZATION = "Authorization"
+HTTP_SUCCESS = 200
+ROUTE_OAUTH = "/oauth/"
+ROUTE_CHANGE_ORG = "/change-org/"
+DEFAULT_API_GATEWAY_URL = "https://apigateway.vernacular.ai"
