@@ -153,3 +153,5 @@ cython_debug/
 
 # Vscode
 .vscode/
+
+skit_auth/testing.py
