@@ -5,7 +5,7 @@ import requests
 from skit_auth import constants as const
 
 
-def raise_network_error(response: requests.Response) -> None:
+def check_network_error(response: requests.Response) -> None:
     """
     Raise a network error if the response is not successful.
 
@@ -36,7 +36,7 @@ def get_default_token(url: str, email: str, password: str) -> str:
     """
     payload = {const.EMAIL: email, const.PASSWORD: password}
     response = requests.post(urljoin(url, const.ROUTE_OAUTH), json=payload)
-    raise_network_error(response)
+    check_network_error(response)
     return response.json().get(const.ACCESS_TOKEN)
 
 
@@ -60,5 +60,5 @@ def get_org_token(url: str, email: str, password: str, org_id: int) -> str:
     response = requests.post(
         urljoin(url, const.ROUTE_CHANGE_ORG), json=payload, headers=headers
     )
-    raise_network_error(response)
+    check_network_error(response)
     return response.json().get(const.ACCESS_TOKEN)
