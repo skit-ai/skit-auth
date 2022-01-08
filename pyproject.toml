@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "skit-auth"
-version = "0.1.0"
+version = "0.2.0"
 description = "Authorization for skit.ai's platform."
 authors = ["ltbringer <amresh.venugopal@gmail.com>"]
 license = "GPL-3"
@@ -9,6 +9,7 @@ license = "GPL-3"
 python = "^3.9"
 requests = "^2.27.1"
 requests-mock = "^1.9.3"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"
