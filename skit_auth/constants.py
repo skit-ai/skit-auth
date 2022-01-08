@@ -1,3 +1,24 @@
+"""
+Common constants used by the package.
+
+We maintain this file to make sure that we don't have inconsistencies in the
+constants used. It is common to notice spelling mistakes associated with strings
+additionally, we don't get IDE's to automatically suggest values.
+
+consider:
+
+```python
+a_dict["key"]
+```
+
+and 
+
+```
+a_dict[const.KEY]
+```
+In the latter, a mature IDE will suggest the KEY constant, reducing time and ensuring consistency.
+"""
+
 EMAIL = "email"
 PASSWORD = "password"
 ACCESS_TOKEN = "access_token"
