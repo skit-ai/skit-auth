@@ -2,6 +2,8 @@ import os
 import argparse
 import getpass
 
+import toml
+
 from skit_auth import auth
 from skit_auth import constants as const
 
@@ -13,7 +15,10 @@ class Password(argparse.Action):
 
 
 def build_cli():
-    parser = argparse.ArgumentParser(description="skit.ai's authorization library.")
+    with open("pyproject.toml", 'r') as handle:
+        project_metadata = toml.load(handle)
+    version = project_metadata["tool"]["poetry"]["version"]
+    parser = argparse.ArgumentParser(description=f"skit-auth {version}.\n\nskit.ai's authorization library.")
     parser.add_argument(
         "--url",
         type=str,
