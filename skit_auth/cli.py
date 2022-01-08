@@ -1,7 +1,15 @@
+import os
 import argparse
+import getpass
 
 from skit_auth import auth
 from skit_auth import constants as const
+
+
+class Password(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string):
+        values = getpass.getpass()
+        setattr(namespace, self.dest, values)
 
 
 def build_cli():
@@ -16,7 +24,11 @@ def build_cli():
         "--email", type=str, required=True, help="The email address of the user or IAM."
     )
     parser.add_argument(
-        "--password", type=str, required=True, help="The password of the user or IAM."
+        "-p", "--password", type=str, help="The password of the user or IAM."
+        " We can also read it from the SKIT_API_GATEWAY_PASSWORD environment variable."
+        " *DON'T* provide a value e.g. -p <password> or --password <password> will fail.",
+        action=Password,
+        dest="password", nargs=0, default=os.environ.get("SKIT_API_GATEWAY_PASSWORD")
     )
     parser.add_argument(
         "--org-id", type=int, required=False, help="The ID of the organization."
@@ -32,6 +44,8 @@ def main() -> None:
     """
     cli = build_cli()
     args = cli.parse_args()
+    if not isinstance(args.password, str) or args.password == "":
+        raise argparse.ArgumentTypeError("You must provide a password. Use -p or --password.")
     if args.org_id:
         print(auth.get_org_token(args.url, args.email, args.password, args.org_id))
     else:
