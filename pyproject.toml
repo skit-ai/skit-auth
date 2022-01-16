@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "skit-auth"
-version = "0.2.0"
+version = "0.1.2"
 description = "Authorization for skit.ai's platform."
 authors = ["ltbringer <amresh.venugopal@gmail.com>"]
-license = "GPL-3"
+license = "GPL-3.0-only"
+repository = "https://github.com/skit-ai/skit-auth"
 
 [tool.poetry.dependencies]
 python = "^3.9"
