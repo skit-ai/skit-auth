@@ -2,23 +2,22 @@ import os
 import argparse
 import getpass
 
-import toml
-
-from skit_auth import auth
+from skit_auth import auth, __version__
 from skit_auth import constants as const
+from skit_auth import utils
+
+VERSION = __version__
 
 
 class Password(argparse.Action):
     def __call__(self, parser, namespace, values, option_string):
-        values = getpass.getpass()
+        values = os.environ.get("SKIT_API_GATEWAY_PASSWORD") or getpass.getpass()
         setattr(namespace, self.dest, values)
 
 
 def build_cli():
-    with open("pyproject.toml", 'r') as handle:
-        project_metadata = toml.load(handle)
-    version = project_metadata["tool"]["poetry"]["version"]
-    parser = argparse.ArgumentParser(description=f"skit-auth {version}.\n\nskit.ai's authorization library.")
+    parser = argparse.ArgumentParser(description=f"skit-auth {VERSION}.\n\nskit.ai's authorization library.")
+    parser.add_argument("-v", "--verbose", action="count", help="Increase verbosity.", default=0)
     parser.add_argument(
         "--url",
         type=str,
@@ -49,6 +48,8 @@ def main() -> None:
     """
     cli = build_cli()
     args = cli.parse_args()
+    utils.configure_logger(args.verbose)
+
     if not isinstance(args.password, str) or args.password == "":
         raise argparse.ArgumentTypeError("You must provide a password. Use -p or --password.")
     if args.org_id:
