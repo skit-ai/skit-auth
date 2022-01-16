@@ -48,3 +48,6 @@ To obtain a token for a particular organization we use the `--org-id` flag.
 ```shell
 skit-auth --email iam@skit.ai --password --org-id 2
 ```
+
+These commands also save a session in `${HOME}/.skit/token` for other skit programs to use.
+Other skit packages expect a token at the same path and read the token if present.
