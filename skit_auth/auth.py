@@ -1,9 +1,9 @@
 from urllib.parse import urljoin
 
 import requests
+from loguru import logger
 
 from skit_auth import constants as const
-from loguru import logger
 from skit_auth import utils
 
 

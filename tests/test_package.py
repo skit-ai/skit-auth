@@ -1,5 +1,4 @@
-from skit_auth import __version__
-from skit_auth import utils
+from skit_auth import __version__, utils
 
 
 def test_package_version():
