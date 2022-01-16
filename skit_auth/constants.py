@@ -27,4 +27,4 @@ AUTHORIZATION = "Authorization"
 HTTP_SUCCESS = 200
 ROUTE_OAUTH = "/oauth/"
 ROUTE_CHANGE_ORG = "/change-org/"
-DEFAULT_API_GATEWAY_URL = "https://apigateway.skit.ai"
+DEFAULT_API_GATEWAY_URL = "https://apigateway.vernacular.ai"
