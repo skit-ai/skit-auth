@@ -3,6 +3,8 @@ from urllib.parse import urljoin
 import requests
 
 from skit_auth import constants as const
+from loguru import logger
+from skit_auth import utils
 
 
 def check_network_error(response: requests.Response) -> None:
@@ -37,7 +39,9 @@ def get_default_token(url: str, email: str, password: str) -> str:
     payload = {const.EMAIL: email, const.PASSWORD: password}
     response = requests.post(urljoin(url, const.ROUTE_OAUTH), json=payload)
     check_network_error(response)
-    return response.json().get(const.ACCESS_TOKEN)
+    token = response.json().get(const.ACCESS_TOKEN)
+    utils.set_session(token)
+    return token
 
 
 def get_org_token(url: str, email: str, password: str, org_id: int) -> str:
@@ -61,4 +65,8 @@ def get_org_token(url: str, email: str, password: str, org_id: int) -> str:
         urljoin(url, const.ROUTE_CHANGE_ORG), json=payload, headers=headers
     )
     check_network_error(response)
-    return response.json().get(const.ACCESS_TOKEN)
+    logger.debug(f"Acquired organization token for {org_id=}.")
+    logger.debug(f"{response.json()}")
+    token = response.json().get(const.ACCESS_TOKEN)
+    utils.set_session(token)
+    return token
