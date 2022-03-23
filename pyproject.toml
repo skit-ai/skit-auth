@@ -7,7 +7,7 @@ license = "GPL-3.0-only"
 repository = "https://github.com/skit-ai/skit-auth"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 requests = "^2.27.1"
 requests-mock = "^1.9.3"
 toml = "^0.10.2"
