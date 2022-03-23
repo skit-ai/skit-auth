@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "skit-auth"
-version = "0.1.2"
+version = "0.1.3"
 description = "Authorization for skit.ai's platform."
 authors = ["ltbringer <amresh.venugopal@gmail.com>"]
 license = "GPL-3.0-only"
