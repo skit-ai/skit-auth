@@ -1,6 +1,8 @@
 # CHANGELOG
 
-## [Unreleased]
+## 0.1.4
+
+- [x] Support python 3.8-3.10
 
 ## [0.1.2] - 2022-01-16
 
