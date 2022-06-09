@@ -3,6 +3,7 @@ Module provides access to logger config, session token and package version.
 """
 import os
 import sys
+from typing import Optional
 
 import toml
 from loguru import logger
@@ -57,7 +58,7 @@ def configure_logger(level: int) -> None:
     logger.enable(__name__)
 
 
-def read_session() -> str | None:
+def read_session() -> Optional[str]:
     """
     Read the session from the environment.
     """

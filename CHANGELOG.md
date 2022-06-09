@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.5
+
+- [x] fix: 3.10 style python annotation.
+
 ## 0.1.4
 
 - [x] Support python 3.8-3.10
